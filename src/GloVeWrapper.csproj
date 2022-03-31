@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6</TargetFramework>
+		<PackageId>GloVeWrapper</PackageId>
+		<Authors>HitRefresh</Authors>
+		<OutputType>Library</OutputType>
+		<AssemblyName>GloVeWrapper</AssemblyName>
+		<RootNamespace>HitRefresh.GloVeWrapper</RootNamespace>
+		<GenerateDocumentFile>true</GenerateDocumentFile>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Company>Hit-ReFreSH</Company>
+		<PackageProjectUrl>https://github.com/HIT-ReFreSH/GloVeWrapper</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/HIT-ReFreSH/GloVeWrapper.git</RepositoryUrl>
+		<RepositoryType>Github</RepositoryType>
+		<Version>0.1</Version>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Nullable>enable</Nullable>
+		<LangVersion>10.0</LangVersion>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+		<PackageReleaseNotes>Version 0.1 Init.</PackageReleaseNotes>
+		<Description>A convenience and simple .NET wrapper around GloVe word vectors. See https://github.com/HIT-ReFreSH/GloVeWrapper.</Description>
+		<Copyright>Copyright (c) 2019-2022 ReFreSH</Copyright>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<NeutralLanguage><en-US></en-US></NeutralLanguage>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <LangVersion>10.0</LangVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <LangVersion>10.0</LangVersion>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="../README.md" Pack="true" PackagePath="/" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="System.Runtime.Caching" Version="6.0.0" />
+	</ItemGroup>
+</Project>
