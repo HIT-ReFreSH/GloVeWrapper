@@ -12,13 +12,13 @@
 		<PackageProjectUrl>https://github.com/HIT-ReFreSH/GloVeWrapper</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/HIT-ReFreSH/GloVeWrapper.git</RepositoryUrl>
 		<RepositoryType>Github</RepositoryType>
-		<Version>0.1</Version>
+		<Version>0.1.1</Version>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Nullable>enable</Nullable>
 		<LangVersion>10.0</LangVersion>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-		<PackageReleaseNotes>Version 0.1 Init.</PackageReleaseNotes>
+		<PackageReleaseNotes>Version 0.1.1 Init.</PackageReleaseNotes>
 		<Description>A convenience and simple .NET wrapper around GloVe word vectors. See https://github.com/HIT-ReFreSH/GloVeWrapper.</Description>
 		<Copyright>Copyright (c) 2019-2022 ReFreSH</Copyright>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

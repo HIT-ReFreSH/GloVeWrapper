@@ -133,7 +133,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
     {
         var newArr = new Vector<double>[_vectors.Length];
         Array.Copy(_vectors, newArr, _vectors.Length);
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -143,7 +143,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
             throw new ArgumentException("Vectors' length aren't equaled OR not dense.", nameof(v));
         var newArr = new Vector<double>[_vectors.Length];
         for (var i = 0; i < _vectors.Length; i++) newArr[i] = dv._vectors[i] + _vectors[i];
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     private static Vector<double> SingleValue(double scalar)
@@ -157,7 +157,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
         var newArr = new Vector<double>[_vectors.Length];
         var sv = SingleValue(scalar);
         for (var i = 0; i < _vectors.Length; i++) newArr[i] = sv + _vectors[i];
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -167,7 +167,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
             throw new ArgumentException("Vectors' length aren't equaled OR not dense.", nameof(v));
         var newArr = new Vector<double>[_vectors.Length];
         for (var i = 0; i < _vectors.Length; i++) newArr[i] = _vectors[i] - dv._vectors[i];
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -176,7 +176,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
         var newArr = new Vector<double>[_vectors.Length];
         var sv = SingleValue(scalar);
         for (var i = 0; i < _vectors.Length; i++) newArr[i] = _vectors[i] - sv;
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -185,7 +185,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
         var newArr = new Vector<double>[_vectors.Length];
         var sv = SingleValue(scalar);
         for (var i = 0; i < _vectors.Length; i++) newArr[i] = sv - _vectors[i];
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -194,7 +194,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
         var newArr = new Vector<double>[_vectors.Length];
         var sv = SingleValue(scalar);
         for (var i = 0; i < _vectors.Length; i++) newArr[i] = sv * _vectors[i];
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -204,7 +204,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
             throw new ArgumentException("Vectors' length aren't equaled OR not dense.", nameof(v));
         var newArr = new Vector<double>[_vectors.Length];
         for (var i = 0; i < _vectors.Length; i++) newArr[i] = _vectors[i] - dv._vectors[i];
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -213,7 +213,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
         var newArr = new Vector<double>[_vectors.Length];
         var sv = SingleValue(scalar);
         for (var i = 0; i < _vectors.Length; i++) newArr[i] = _vectors[i] / sv;
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -222,7 +222,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
         var newArr = new Vector<double>[_vectors.Length];
         var sv = SingleValue(scalar);
         for (var i = 0; i < _vectors.Length; i++) newArr[i] = sv / _vectors[i];
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -232,7 +232,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
             throw new ArgumentException("Vectors' length aren't equaled OR not dense.", nameof(v));
         var newArr = new Vector<double>[_vectors.Length];
         for (var i = 0; i < _vectors.Length; i++) newArr[i] = _vectors[i] - dv._vectors[i];
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -247,7 +247,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
             newArr[i] = new Vector<double>(span);
         }
 
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -255,7 +255,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
     {
         var newArr = new Vector<double>[_vectors.Length];
         for (var i = 0; i < _vectors.Length; i++) newArr[i] = Vector.Abs(_vectors[i]);
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -263,7 +263,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
     {
         var newArr = new Vector<double>[_vectors.Length];
         for (var i = 0; i < _vectors.Length; i++) newArr[i] = Vector.SquareRoot(_vectors[i]);
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -271,7 +271,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
     {
         var newArr = new Vector<double>[_vectors.Length];
         for (var i = 0; i < _vectors.Length; i++) newArr[i] = Vector.Negate(_vectors[i]);
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -286,7 +286,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
             newArr[i] = new Vector<double>(span);
         }
 
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
@@ -301,7 +301,7 @@ public readonly struct DenseDoubleVector : IDoubleVector
             newArr[i] = new Vector<double>(span);
         }
 
-        return new DenseDoubleVector(_vectors.Length, newArr);
+        return new DenseDoubleVector(Length, newArr);
     }
 
     /// <inheritdoc />
