@@ -35,4 +35,21 @@ public interface IGloveReader
 
         return new DenseDoubleVector(vec);
     }
+
+    /// <summary>
+    ///     Read a vector from binary stream.
+    /// </summary>
+    /// <param name="blockSize"></param>
+    /// <param name="br"></param>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
+    public static DenseDoubleVector ReadDenseVec(long blockSize, BinaryReader br)
+    {
+        var dim = (int) (blockSize >> 3);
+        Span<double> vec = stackalloc double[dim];
+
+        for (var i = 0; i < dim; i++) vec[i] = br.ReadDouble();
+
+        return new DenseDoubleVector(vec);
+    }
 }

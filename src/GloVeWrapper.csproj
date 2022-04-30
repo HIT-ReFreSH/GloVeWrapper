@@ -12,26 +12,28 @@
 		<PackageProjectUrl>https://github.com/HIT-ReFreSH/GloVeWrapper</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/HIT-ReFreSH/GloVeWrapper.git</RepositoryUrl>
 		<RepositoryType>Github</RepositoryType>
-		<Version>0.1.1</Version>
+		<Version>0.1.2</Version>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Nullable>enable</Nullable>
 		<LangVersion>10.0</LangVersion>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-		<PackageReleaseNotes>Version 0.1.1 Init.</PackageReleaseNotes>
+		<PackageReleaseNotes>Version 0.1.2 High Performance.</PackageReleaseNotes>
 		<Description>A convenience and simple .NET wrapper around GloVe word vectors. See https://github.com/HIT-ReFreSH/GloVeWrapper.</Description>
 		<Copyright>Copyright (c) 2019-2022 ReFreSH</Copyright>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<NeutralLanguage><en-US></en-US></NeutralLanguage>
+		<NeutralLanguage>
+			<en-US></en-US>
+		</NeutralLanguage>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-	  <LangVersion>10.0</LangVersion>
+		<LangVersion>10.0</LangVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-	  <LangVersion>10.0</LangVersion>
+		<LangVersion>10.0</LangVersion>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Include="../README.md" Pack="true" PackagePath="/" />

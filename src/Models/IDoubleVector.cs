@@ -13,12 +13,12 @@ public interface IDoubleVector : IEnumerable<double>
     /// <summary>
     ///     BlockSize of Base type(Vector&lt;double&gt;.Count)
     /// </summary>
-    protected static int BlockSize { get; } = Vector<double>.Count;
+    protected internal static int BlockSize { get; } = Vector<double>.Count;
 
     /// <summary>
     ///     Bit-accelerated calculation for / BlockSize
     /// </summary>
-    protected static int ShiftSize { get; } = BlockSize switch
+    protected internal static int ShiftSize { get; } = BlockSize switch
     {
         1 => 0,
         2 => 1,

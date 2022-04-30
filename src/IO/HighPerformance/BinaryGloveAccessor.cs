@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HitRefresh.GloVeWrapper.Models;
 
-namespace HitRefresh.GloVeWrapper.IO;
+namespace HitRefresh.GloVeWrapper.IO.HighPerformance;
 
 /// <summary>
 ///     input.PeekChar() != -1
@@ -53,24 +53,24 @@ public class BinaryGloveAccessor : IGloveAccessor, IDisposable
     }
 
     /// <inheritdoc />
-    public IDoubleVector? this[string word]
+    public DenseDoubleVector this[string word]
     {
         get
         {
-            if (!Contains(word)) return null;
+            if (!Contains(word)) return DenseDoubleVector.Empty;
 
             var offset = Dictionary[word];
             using var br = new BinaryReader(
                 Vectors.CreateViewStream(offset, BlockSize, MemoryMappedFileAccess.Read)
             );
-            return IGloveReader.ReadVec(BlockSize, br);
+            return IGloveReader.ReadDenseVec(BlockSize, br);
         }
     }
 
     /// <inheritdoc />
-    public async Task<IDoubleVector?> GetAsync(string word)
+    public async Task<DenseDoubleVector> GetAsync(string word)
     {
-        if (!Contains(word)) return null;
+        if (!Contains(word)) return DenseDoubleVector.Empty;
 
         return await Task.Run(() =>
         {
@@ -78,7 +78,7 @@ public class BinaryGloveAccessor : IGloveAccessor, IDisposable
             using var br = new BinaryReader(
                 Vectors.CreateViewStream(offset, BlockSize, MemoryMappedFileAccess.Read)
             );
-            return IGloveReader.ReadVec(BlockSize, br);
+            return IGloveReader.ReadDenseVec(BlockSize, br);
         });
     }
 
