@@ -38,7 +38,7 @@ public class BinaryGloveAccessor : IGloveAccessor, IDisposable
         BlockSize = size;
         var vecFs = Path.GetFullPath(vecFile);
         Vectors = MemoryMappedFile.CreateFromFile(File.OpenRead(
-                vecFile), vecFile.Split("\\")[^1], 0,
+                vecFile), null, 0,
             MemoryMappedFileAccess.Read, HandleInheritability.Inheritable, true);
     }
 
